@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="Definitions_Recrutement" targetNamespace="https://example.com/recrutement">
+  <bpmn2:collaboration id="Collaboration_Recrutement">
+    <bpmn2:participant id="Participant_Recrutement" name="Processus de recrutement" processRef="Process_Recrutement" />
+  </bpmn2:collaboration>
+  <bpmn2:process id="Process_Recrutement" name="Processus de recrutement" isExecutable="true">
+    <bpmn2:laneSet id="LaneSet_Recrutement">
+      <bpmn2:lane id="Lane_Manager" name="Manager">
+        <bpmn2:flowNodeRef>StartEvent</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>JustifierBesoin</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>SoumettreDemande</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>DefinirPoste</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>EntretienTechnique</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>ValiderCandidat</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>_4CB6FE5A-C3CA-48C8-A722-1280E9940087</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="Lane_RH" name="RH Talent Acquisition">
+        <bpmn2:flowNodeRef>ExaminerDemande</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>RedigerOffre</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>PublierOffre</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>ExaminerCV</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>PlanifierEntretienRH</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>EntretienRH</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>PlanifierEntretienManager</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>ConsoliderEvaluations</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>EnvoyerProposition</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>PreparerArrivee</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>DemanderAccesIT</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>SuiviUnMois</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>EndEvent</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>_366329E5-87D7-4C7C-9EF4-37F932CB1CA2</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>FormalitesEmbauche</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>AccueilCollaborateur</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="Lane_Directeur" name="Directeur RH" />
+      <bpmn2:lane id="Lane_Candidat" name="Candidat">
+        <bpmn2:flowNodeRef>ConsulterOffres</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>SoumettreCandidature</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="Lane_IT" name="IT">
+        <bpmn2:flowNodeRef>CreerAccesIT</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+    </bpmn2:laneSet>
+    <bpmn2:startEvent id="StartEvent" name="Besoin de recrutement identifié" />
+    <bpmn2:endEvent id="EndEvent" name="Recrutement terminé" />
+    <bpmn2:userTask id="JustifierBesoin" name="Identifier et justifier le besoin de recrutement" />
+    <bpmn2:userTask id="SoumettreDemande" name="Soumettre le besoin de recrutement à la Direction" />
+    <bpmn2:userTask id="ExaminerDemande" name="Examiner le besoin de recrutement" />
+    <bpmn2:userTask id="DefinirPoste" name="Définir la fiche poste" />
+    <bpmn2:userTask id="RedigerOffre" name="Rédiger l&apos;offre d&apos;emploi" />
+    <bpmn2:userTask id="PublierOffre" name="Publier l&apos;offre d&apos;emploi" />
+    <bpmn2:userTask id="ConsulterOffres" name="Consulter les offres publiées" />
+    <bpmn2:userTask id="SoumettreCandidature" name="Soumettre la candidature et le CV" />
+    <bpmn2:userTask id="ExaminerCV" name="Examiner les candidatures et les CV" />
+    <bpmn2:userTask id="PlanifierEntretienRH" name="Planifier l&apos;entretien téléphonique" />
+    <bpmn2:userTask id="EntretienRH" name="Mener l&apos;entretien RH et saisir l&apos;évaluation" />
+    <bpmn2:userTask id="PlanifierEntretienManager" name="Planifier l&apos;entretien avec le Manager" />
+    <bpmn2:userTask id="EntretienTechnique" name="Évaluer les compétences techniques et métier" />
+    <bpmn2:userTask id="ConsoliderEvaluations" name="Consolider les évaluations des candidats" />
+    <bpmn2:userTask id="ValiderCandidat" name="Valider le candidat retenu" />
+    <bpmn2:userTask id="EnvoyerProposition" name="Générer et envoyer la proposition d&apos;embauche" />
+    <bpmn2:userTask id="FormalitesEmbauche" name="Préparer le contrat, le registre du personnel, la visite médicale et la CNSS" />
+    <bpmn2:userTask id="PreparerArrivee" name="Préparer le dossier d&apos;arrivée, le livret et le planning" />
+    <bpmn2:userTask id="DemanderAccesIT" name="Demander les accès et le matériel à l&apos;IT" />
+    <bpmn2:userTask id="CreerAccesIT" name="Créer les comptes et préparer le matériel" />
+    <bpmn2:userTask id="AccueilCollaborateur" name="Accueillir le collaborateur et remettre les documents et accès" />
+    <bpmn2:userTask id="SuiviUnMois" name="Organiser le suivi d&apos;intégration à un mois" />
+    <bpmn2:sequenceFlow id="Flow_01" sourceRef="StartEvent" targetRef="JustifierBesoin" />
+    <bpmn2:sequenceFlow id="Flow_02" sourceRef="JustifierBesoin" targetRef="SoumettreDemande" />
+    <bpmn2:sequenceFlow id="Flow_03" sourceRef="SoumettreDemande" targetRef="ExaminerDemande" />
+    <bpmn2:sequenceFlow id="Flow_04" sourceRef="ExaminerDemande" targetRef="DefinirPoste" />
+    <bpmn2:sequenceFlow id="Flow_05" sourceRef="DefinirPoste" targetRef="RedigerOffre" />
+    <bpmn2:sequenceFlow id="Flow_06" sourceRef="RedigerOffre" targetRef="PublierOffre" />
+    <bpmn2:sequenceFlow id="Flow_07" sourceRef="PublierOffre" targetRef="ConsulterOffres" />
+    <bpmn2:sequenceFlow id="Flow_08" sourceRef="ConsulterOffres" targetRef="SoumettreCandidature" />
+    <bpmn2:sequenceFlow id="Flow_09" sourceRef="SoumettreCandidature" targetRef="ExaminerCV" />
+    <bpmn2:sequenceFlow id="Flow_10" sourceRef="ExaminerCV" targetRef="PlanifierEntretienRH" />
+    <bpmn2:sequenceFlow id="Flow_11" sourceRef="PlanifierEntretienRH" targetRef="EntretienRH" />
+    <bpmn2:sequenceFlow id="Flow_12" sourceRef="EntretienRH" targetRef="PlanifierEntretienManager" />
+    <bpmn2:sequenceFlow id="Flow_13" sourceRef="PlanifierEntretienManager" targetRef="EntretienTechnique" />
+    <bpmn2:sequenceFlow id="Flow_14" sourceRef="EntretienTechnique" targetRef="ConsoliderEvaluations" />
+    <bpmn2:sequenceFlow id="Flow_15" sourceRef="ConsoliderEvaluations" targetRef="ValiderCandidat" />
+    <bpmn2:sequenceFlow id="Flow_16" sourceRef="ValiderCandidat" targetRef="EnvoyerProposition" />
+    <bpmn2:sequenceFlow id="Flow_17" sourceRef="EnvoyerProposition" targetRef="FormalitesEmbauche" />
+    <bpmn2:sequenceFlow id="Flow_18" sourceRef="FormalitesEmbauche" targetRef="PreparerArrivee" />
+    <bpmn2:sequenceFlow id="Flow_19" sourceRef="PreparerArrivee" targetRef="DemanderAccesIT" />
+    <bpmn2:sequenceFlow id="Flow_20" sourceRef="DemanderAccesIT" targetRef="CreerAccesIT" />
+    <bpmn2:sequenceFlow id="Flow_21" sourceRef="CreerAccesIT" targetRef="AccueilCollaborateur" />
+    <bpmn2:sequenceFlow id="Flow_22" sourceRef="AccueilCollaborateur" targetRef="SuiviUnMois" />
+    <bpmn2:sequenceFlow id="Flow_23" sourceRef="SuiviUnMois" targetRef="EndEvent" />
+    <bpmn2:association id="_929943FA-82E2-460C-9A61-3ED1C01FD20B" associationDirection="Both" sourceRef="DefinirPoste" targetRef="_4CB6FE5A-C3CA-48C8-A722-1280E9940087" />
+    <bpmn2:association id="_CE311052-0FC3-4779-86B3-24E214872DC5" associationDirection="Both" sourceRef="PublierOffre" targetRef="_366329E5-87D7-4C7C-9EF4-37F932CB1CA2" />
+    <bpmn2:textAnnotation id="_4CB6FE5A-C3CA-48C8-A722-1280E9940087">
+      <bpmn2:text>définir les missions, les compétences et l&apos;expérience</bpmn2:text>
+    </bpmn2:textAnnotation>
+    <bpmn2:textAnnotation id="_366329E5-87D7-4C7C-9EF4-37F932CB1CA2">
+      <bpmn2:text>ou la publier </bpmn2:text>
+    </bpmn2:textAnnotation>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_Recrutement">
+    <bpmndi:BPMNPlane id="BPMNPlane_Recrutement" bpmnElement="Collaboration_Recrutement">
+      <bpmndi:BPMNShape id="Participant_Recrutement_di" bpmnElement="Participant_Recrutement" isHorizontal="true">
+        <dc:Bounds x="120" y="40" width="5200" height="750" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Manager_di" bpmnElement="Lane_Manager" isHorizontal="true">
+        <dc:Bounds x="120" y="40" width="5200" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_RH_di" bpmnElement="Lane_RH" isHorizontal="true">
+        <dc:Bounds x="120" y="190" width="5200" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Directeur_di" bpmnElement="Lane_Directeur" isHorizontal="true">
+        <dc:Bounds x="120" y="360" width="5200" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Candidat_di" bpmnElement="Lane_Candidat" isHorizontal="true">
+        <dc:Bounds x="120" y="520" width="5200" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_IT_di" bpmnElement="Lane_IT" isHorizontal="true">
+        <dc:Bounds x="120" y="680" width="5200" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_di" bpmnElement="StartEvent">
+        <dc:Bounds x="200" y="97" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="JustifierBesoin_di" bpmnElement="JustifierBesoin">
+        <dc:Bounds x="280" y="80" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SoumettreDemande_di" bpmnElement="SoumettreDemande">
+        <dc:Bounds x="480" y="80" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExaminerDemande_di" bpmnElement="ExaminerDemande">
+        <dc:Bounds x="680" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DefinirPoste_di" bpmnElement="DefinirPoste">
+        <dc:Bounds x="880" y="80" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RedigerOffre_di" bpmnElement="RedigerOffre">
+        <dc:Bounds x="1080" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PublierOffre_di" bpmnElement="PublierOffre">
+        <dc:Bounds x="1280" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ConsulterOffres_di" bpmnElement="ConsulterOffres">
+        <dc:Bounds x="1480" y="560" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SoumettreCandidature_di" bpmnElement="SoumettreCandidature">
+        <dc:Bounds x="1680" y="560" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExaminerCV_di" bpmnElement="ExaminerCV">
+        <dc:Bounds x="1880" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PlanifierEntretienRH_di" bpmnElement="PlanifierEntretienRH">
+        <dc:Bounds x="2080" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EntretienRH_di" bpmnElement="EntretienRH">
+        <dc:Bounds x="2280" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PlanifierEntretienManager_di" bpmnElement="PlanifierEntretienManager">
+        <dc:Bounds x="2480" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EntretienTechnique_di" bpmnElement="EntretienTechnique">
+        <dc:Bounds x="2680" y="80" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ConsoliderEvaluations_di" bpmnElement="ConsoliderEvaluations">
+        <dc:Bounds x="2880" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ValiderCandidat_di" bpmnElement="ValiderCandidat">
+        <dc:Bounds x="3080" y="80" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EnvoyerProposition_di" bpmnElement="EnvoyerProposition">
+        <dc:Bounds x="3280" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FormalitesEmbauche_di" bpmnElement="FormalitesEmbauche">
+        <dc:Bounds x="3480" y="220" width="160" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PreparerArrivee_di" bpmnElement="PreparerArrivee">
+        <dc:Bounds x="3680" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DemanderAccesIT_di" bpmnElement="DemanderAccesIT">
+        <dc:Bounds x="3880" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CreerAccesIT_di" bpmnElement="CreerAccesIT">
+        <dc:Bounds x="4080" y="720" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AccueilCollaborateur_di" bpmnElement="AccueilCollaborateur">
+        <dc:Bounds x="4300" y="220" width="160" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SuiviUnMois_di" bpmnElement="SuiviUnMois">
+        <dc:Bounds x="4480" y="230" width="150" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_di" bpmnElement="EndEvent">
+        <dc:Bounds x="4680" y="247" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_676DD3D9-973D-455B-8689-34489E070537" bpmnElement="_4CB6FE5A-C3CA-48C8-A722-1280E9940087">
+        <dc:Bounds x="1120" y="60" width="200" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BD4BDFB4-FBB3-463B-817B-FEA2FE776D08" bpmnElement="_366329E5-87D7-4C7C-9EF4-37F932CB1CA2">
+        <dc:Bounds x="1520" y="220" width="200" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
+        <di:waypoint x="236" y="115" />
+        <di:waypoint x="280" y="115" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
+        <di:waypoint x="430" y="115" />
+        <di:waypoint x="480" y="115" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
+        <di:waypoint x="630" y="115" />
+        <di:waypoint x="655" y="115" />
+        <di:waypoint x="655" y="265" />
+        <di:waypoint x="680" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
+        <di:waypoint x="830" y="265" />
+        <di:waypoint x="855" y="265" />
+        <di:waypoint x="855" y="115" />
+        <di:waypoint x="880" y="115" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
+        <di:waypoint x="1030" y="115" />
+        <di:waypoint x="1055" y="115" />
+        <di:waypoint x="1055" y="265" />
+        <di:waypoint x="1080" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
+        <di:waypoint x="1230" y="265" />
+        <di:waypoint x="1280" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07">
+        <di:waypoint x="1430" y="265" />
+        <di:waypoint x="1455" y="295" />
+        <di:waypoint x="1455" y="595" />
+        <di:waypoint x="1480" y="595" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08">
+        <di:waypoint x="1630" y="595" />
+        <di:waypoint x="1680" y="595" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09">
+        <di:waypoint x="1830" y="595" />
+        <di:waypoint x="1855" y="595" />
+        <di:waypoint x="1855" y="295" />
+        <di:waypoint x="1880" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="2030" y="265" />
+        <di:waypoint x="2080" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="2230" y="265" />
+        <di:waypoint x="2280" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="2430" y="265" />
+        <di:waypoint x="2480" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <di:waypoint x="2630" y="265" />
+        <di:waypoint x="2655" y="265" />
+        <di:waypoint x="2655" y="115" />
+        <di:waypoint x="2680" y="115" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14">
+        <di:waypoint x="2830" y="115" />
+        <di:waypoint x="2855" y="115" />
+        <di:waypoint x="2855" y="265" />
+        <di:waypoint x="2880" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15_di" bpmnElement="Flow_15">
+        <di:waypoint x="3030" y="265" />
+        <di:waypoint x="3055" y="265" />
+        <di:waypoint x="3055" y="115" />
+        <di:waypoint x="3080" y="115" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16_di" bpmnElement="Flow_16">
+        <di:waypoint x="3230" y="115" />
+        <di:waypoint x="3255" y="115" />
+        <di:waypoint x="3255" y="265" />
+        <di:waypoint x="3280" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17_di" bpmnElement="Flow_17">
+        <di:waypoint x="3430" y="265" />
+        <di:waypoint x="3480" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18_di" bpmnElement="Flow_18">
+        <di:waypoint x="3640" y="280" />
+        <di:waypoint x="3680" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19_di" bpmnElement="Flow_19">
+        <di:waypoint x="3830" y="265" />
+        <di:waypoint x="3880" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_20_di" bpmnElement="Flow_20">
+        <di:waypoint x="4030" y="265" />
+        <di:waypoint x="4055" y="305" />
+        <di:waypoint x="4055" y="755" />
+        <di:waypoint x="4080" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_21_di" bpmnElement="Flow_21">
+        <di:waypoint x="4230" y="755" />
+        <di:waypoint x="4255" y="755" />
+        <di:waypoint x="4255" y="305" />
+        <di:waypoint x="4300" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_22_di" bpmnElement="Flow_22">
+        <di:waypoint x="4460" y="280" />
+        <di:waypoint x="4480" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_23_di" bpmnElement="Flow_23">
+        <di:waypoint x="4630" y="265" />
+        <di:waypoint x="4680" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_62CED432-C991-4B55-A585-26D9E1D84426-AUTO-SOURCE-AUTO-TARGET" bpmnElement="_929943FA-82E2-460C-9A61-3ED1C01FD20B" sourceElement="DefinirPoste_di" targetElement="_676DD3D9-973D-455B-8689-34489E070537">
+        <di:waypoint x="955" y="115" />
+        <di:waypoint x="1220" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_2C203A22-9FD0-468B-9701-BF239998B6DD-AUTO-SOURCE-AUTO-TARGET" bpmnElement="_CE311052-0FC3-4779-86B3-24E214872DC5" sourceElement="PublierOffre_di" targetElement="_BD4BDFB4-FBB3-463B-817B-FEA2FE776D08">
+        <di:waypoint x="1355" y="265" />
+        <di:waypoint x="1620" y="270" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
